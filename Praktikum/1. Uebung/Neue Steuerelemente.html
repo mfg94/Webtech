@@ -7,13 +7,21 @@
 
 <body>
 <form method="get">
-	<p>Geburstdatum: <input name="Geburtsdatum" type="date" placeholder="tt.mm.jjjj"></p>
-	<p>Lieblingsfarbe: <input name="Liebliengsfarbe" type="color" value="black"></p>
-	<p>Anzahl (1-10): <input name="anzahl" type="range" min="1" max="10" value="5"></p>
-	<p>E-Mail-Adr.: <input name="email" type="email" placeholder="test@test.de"></p>
-	<p>W&auml;hle Zahl: <input name="chooseDigit" type="text"> (10er-Schritte)</p>
-	<p>Passwort: <input name="password" type="password"></p>
-	<p>Suche nach: <input name="search" type="text" placeholder="Search"></p>
+	<p>Geburstdatum: <input type="date" name="Geburtsdatum" placeholder="tt.mm.jjjj"/></p>
+	
+	<p>Lieblingsfarbe: <input type="color" name="liebliengsfarbe" value="black"/></p>
+	
+	<p>Anzahl (1-10): <input type="range" name="anzahl" min="1" max="10" value="5"/></p>
+	
+	<p>E-Mail-Adr.: <input type="email" name="email" placeholder="test@test.de" required/></p>
+	
+	<p>W&auml;hle Zahl: <input type="number" min="0" step="10" value="30" name="chooseDigit" /> (10er-Schritte)</p>
+	
+	<p>Passwort: <input type="password" name="password" /></p>
+	
+	<p>Suche nach: <input type="search" name="search" placeholder="Search"/></p>
+	
 	<br><input type="submit" value="Daten absenden">
+	
 </form>
 </html>
