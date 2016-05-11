@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
+
+<head>
+   <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+   <title>Bunte Quadrate absolut</title>
+
+   <style>
+   html{box-sizing:border-box;}
+   p{text-align:center;}
+   
+   .outer{
+   border: 3px solid black;
+   position:absolute;
+   height:100px;
+   width:100px;
+   }
+   
+   #left{left:100px;}
+   #right{left:300px;}
+   
+   #left, #right{top:70px;}
+   
+   
+   .inner{
+   position:absolute;
+   height:50px;
+   width:50px;
+   }
+   
+   #l1,#r1{background:red;}
+   #l2,#r2{background:yellow;left:50px;}
+   #l3,#r3{background:lime;top:50px;}
+   #l4,#r4{background:aqua;left:50px;top:50px;}
+   
+   </style>
+   
+     
+   
+   
+ </head>
+
+<body>
+    <div class="outer" id="left">
+		<div class="inner" id="l1"><p>l1</p></div>
+		<div class="inner" id="l2"><p>l2</p></div>
+		<div class="inner" id="l3"><p>l3</p></div>
+		<div class="inner" id="l4"><p>l4</p></div>
+	</div>
+	
+	<div class="outer" id="right">
+		<div class="inner" id="r1"><p>r1</p></div>
+		<div class="inner" id="r2"><p>r2</p></div>
+		<div class="inner" id="r3"><p>r3</p></div>
+		<div class="inner" id="r4"><p>r4</p></div>	
+	</div>
+
+</body>
+
+</html>
