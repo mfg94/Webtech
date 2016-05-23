@@ -2,47 +2,64 @@
 window.onload = domDurchlaufen;
 
 var text = " ";
-var treecorner = "└─";
+var treecorner = "\t";
 
 
    function domDurchlaufen(){
-     walk(document.body.childNodes);
+     walk(document.body.childNodes,0);
+
+     var para = document.createElement("p");
+     var node = document.createTextNode(text);
+     para.appendChild(node);
+
+     document.body.appendChild(para);
+
+
      console.log(text);
 
 }
 
-  function walk(nod){
+  function walk(nod,level){
+    var tab = "";
+    for(var i=0; i<level;i++)
+    tab += "\t";
+
     for(var i=0; i<nod.length; i++){
+
       if(ignorable(nod[i])==false){
+
         if(nod[i].hasChildNodes()==true){
-          text += "\n" + ausgabeNode(nod[i]);
-          walk(nod[i].childNodes);
+          text += "\n" + tab + ausgabeNode(nod[i],level);
+          walk(nod[i].childNodes,level+1);
         }
         else
-        text += "\n\t" + ausgabeNode(nod[i]);
+        text += "\n" + tab + ausgabeNode(nod[i]);
         }
     }
   }
 
 
+  function ausgabeNode(nod,level){
+    var tab="";
+    for(var i=0; i<level; i++)
+    tab+="\t"
 
-
-
-  function ausgabeNode(nod){
 
     if(nod.nodeType==1 && nod.hasAttributes()==true)
-    return nod.nodeName + " (" + node_Type(nod) + ") : " + nod.nodeValue + ausgabeAttribute(nod);
+    return nod.nodeName + " (" + node_Type(nod) + ") : " + nod.nodeValue + ausgabeAttribute(nod,tab);
     else
-    return nod.nodeName + " (" + node_Type(nod) + ") : " + nod.nodeValue;
+    return tab + nod.nodeName + " (" + node_Type(nod) + ") : " + nod.nodeValue;
   }
 
-  function ausgabeAttribute(nod){
+  function ausgabeAttribute(nod,level){
+
+    var tab = level;
 
     var at = nod.attributes;
     var attribute="";
     for(var i=0; i<at.length; i++){
         if(ignorable(at[i])==false){
-          attribute+="\n\t Attr " + at[i].nodeName + " = " + at[i].value;
+          attribute+="\n" + tab + "\t\tAttr " + at[i].nodeName + " = " + at[i].value;
         }
       }
 
