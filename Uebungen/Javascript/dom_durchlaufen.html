@@ -35,9 +35,9 @@
 
         for (var i = 0; i < nod.length; i++) {
 
-            if (ignorable(nod[i]) == false) { //check if node is ignorable
+            if (!ignorable(nod[i])) { //check if node is ignorable
 
-                if (nod[i].hasChildNodes() == true) { //if the node has children add it to the tree and then go recursive
+                if (nod[i].hasChildNodes) { //if the node has children add it to the tree and then go recursive
                     linebreak();
                     printNode(nod[i], depth);
                     walk(nod[i].childNodes, depth + 1);
@@ -61,7 +61,7 @@
             tabs += tabulationLine;
         }
         //check if the actual nodeType is an element and if it has attributes
-        if (nod.nodeType == 1 && nod.hasAttributes() == true) { //add the actual node and its attributes to the tree
+        if (nod.nodeType == 1 && nod.hasAttributes) { //add the actual node and its attributes to the tree
             addTextToTree(tabs + nod.nodeName + " (" + node_Type(nod) + ") : " + nod.nodeValue);
             printAttributes(nod, level);
         } else //just adding the actual node to the tree
@@ -76,7 +76,7 @@
             tabs += tabulationWhite;
 
         for (var i = 0; i < attributes.length; i++) {
-            if (ignorable(attributes[i]) == false) {
+            if (!ignorable(attributes[i])) {
                 linebreak();
                 addTextToTree(tabs + branch + "Attr " + attributes[i].nodeName + " = " + attributes[i].value);
             }
