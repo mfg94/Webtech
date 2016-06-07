@@ -77,9 +77,10 @@ function node_Type(nod) {
         return "undefined";
 }
 
+
 //Is nod ignorable for the tree?
 function ignorable(nod) {
-    return (nod.nodeType == 8) || // Kommentar-Knoten
+    return (nod.nodeTyp == 8) || // Kommentar-Knoten
         (nod.nodeName == "SCRIPT") || // Skript-Knoten
         ((nod.nodeType == 3) && is_all_ws(nod)); // Text-Knoten, alles ws
 }
