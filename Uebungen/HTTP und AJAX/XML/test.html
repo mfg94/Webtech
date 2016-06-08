@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>XML-Test</title>
+</head>
+
+<script>
+    function xmlReq() {
+        var myRequest = new XMLHttpRequest();
+        var startknoten;
+        myRequest.onreadystatechange = function() {
+            if (myRequest.readyState == 4 && myRequest.status == 200) {
+                kinder = myRequest.responseXML.children[0].children;
+            }
+        };
+
+        myRequest.open("GET", "PurchaseOrders.XML", true);
+        myRequest.send();
+
+        for(var i=0; i<kinder.length;i++){
+
+          document.getElementById('eins') = kinder.getElementsByName('name')
+
+
+
+        }
+
+
+    }
+</script>
+
+<body>
+    <h2 id="eins">&Uuml;bersicht Bestellungenn anzeigen</h2>
+    <input type="button" value="Go!" onclick='xmlReq()' />
+</body>
+
+</html>

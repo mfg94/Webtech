@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AJAXTest</title>
+</head>
+
+<script>
+    function ajaxTest() {
+        var myRequest = new XMLHttpRequest();
+        myRequest.onreadystatechange = function() {
+            if (myRequest.readyState == 4 && myRequest.status == 200) {
+
+                document.getElementById("eins").innerHTML = myRequest.responseText;
+            }
+        };
+        myRequest.open("GET","datei.txt",true);
+        myRequest.send();
+    }
+</script>
+
+
+
+<body>
+    <h1 id="eins">Text mit AJAX &auml;ndern</h1>
+    <input type="button" value="Go!" onclick='ajaxTest()' />
+</body>
+
+</html>
