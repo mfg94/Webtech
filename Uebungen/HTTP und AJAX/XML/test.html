@@ -13,26 +13,33 @@
         myRequest.onreadystatechange = function() {
             if (myRequest.readyState == 4 && myRequest.status == 200) {
                 kinder = myRequest.responseXML.children[0].children;
+
+                console.log(kinder);
+                console.log(kinder[0].attributes);
+                var str = "";
+                for (var i = 0; i < kinder.length; i++) {
+                    str += "Bestellung Nr. " + kinder[i].attributes[0].nodeValue + " Datum " + kinder[i].attributes[1].nodeValue + "<br>";
+                }
+
+                console.log(str);
+
+                document.getElementById('eins').innerHTML = str;
             }
         };
 
         myRequest.open("GET", "PurchaseOrders.XML", true);
         myRequest.send();
 
-        for(var i=0; i<kinder.length;i++){
 
-          document.getElementById('eins') = kinder.getElementsByName('name')
-
-
-
-        }
 
 
     }
 </script>
 
 <body>
-    <h2 id="eins">&Uuml;bersicht Bestellungenn anzeigen</h2>
+    <h2>&Uuml;bersicht Bestellungenn anzeigen</h2>
+    <div id="eins">
+    </div>
     <input type="button" value="Go!" onclick='xmlReq()' />
 </body>
 

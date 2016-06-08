@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Test mit JSON</title>
+</head>
+
+<script>
+    function httpRequest() {
+
+        var myRequest = new XMLHttpRequest();
+        myRequest.onreadystatechange = function() {
+            if (myRequest.readyState == 4 && myRequest.status == 200)
+                addJson(myRequest);
+
+        };
+        myRequest.open("GET", "PurchaseOrders.json", true);
+
+        myRequest.send();
+    }
+
+    function addJson(myRequest) {
+
+        console.log("Test");
+        var myArr = JSON.parse(myRequest.responseText);
+
+
+        document.getElementById("bestellungen").innerHTML = myArr.PurchaseOrders.PurchaseOrder[0].Address[0].Name;
+
+
+
+
+
+    }
+</script>
+
+
+<body>
+    <h2>Bestellungen</h2>
+    <input type="button" value="Go!" onclick="httpRequest()" />
+    <div id="bestellungen"></div>
+</body>
+
+
+
+
+
+
+
+
+
+</html>
