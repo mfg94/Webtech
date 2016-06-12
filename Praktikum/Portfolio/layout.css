@@ -19,17 +19,34 @@ header {
     position: absolute;
     display: inline-block;
     background: #EAEBEB;
-    width: 400px;
-    height: 150px;
+    width: 23%;
+    height: 100px;
+    min-width: 238px;
     right: 5%;
-    bottom: 5%;
-    padding: 5px;
+    bottom: 12%;
+    padding-top: 1%;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 h2 {
+    font-size: 2em;
     text-align: center;
+}
+header h2:not([id="name"])::before, main h2 {
+    display: inline-block;
+    content: "";
+    height: 0.73em;
+    width: 0.73em;
+    margin-right: 2%;
+    background: #D80030;
+}
+#portfolio {
+    letter-spacing: 0.3em;
+    padding-left: 2%;
 }
 nav {
     width: 100%;
+    margin-bottom: 100px;
 }
 nav ul {
     width: 100%;
@@ -57,6 +74,30 @@ nav ul li:hover {
 .icon-hsc-hamburger {
     display: none;
 }
+
+main{
+  widht:75%;
+
+}
+
+aside{
+width: 25%;
+float:right;
+margin-left:10px;
+}
+
+aside h2{
+  width: 100%;
+  height: 50px;
+  color: white;
+  background: #4B564E;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: left;
+  padding:2.5%;
+
+
+}
 @media (max-width: 796px) {
     nav ul li {
         float: none;
@@ -64,14 +105,11 @@ nav ul li:hover {
         padding-left: 10px;
         text-align: left;
         border: none;
-        }
-
-      ul li:hover{
+    }
+    ul li:hover {
         background: #4B564E !important;
         color: white !important;
-      }
-
-      ul li:not(:first-child) {display:none;}
+    }
 
     .icon-hsc-hamburger {
         font-size: 30px;
@@ -84,6 +122,4 @@ nav ul li:hover {
         color: white;
         cursor: pointer;
     }
-
-
 }
